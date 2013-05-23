@@ -214,7 +214,7 @@ class TbApi extends CApplicationComponent
 	 * Returns the url to the published assets folder.
 	 * @return string the url.
 	 */
-	protected function getAssetsUrl()
+	public function getAssetsUrl()
 	{
 		if (isset($this->_assetsUrl))
 			return $this->_assetsUrl;

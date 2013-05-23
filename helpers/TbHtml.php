@@ -3702,6 +3702,11 @@ EOD;
 		echo '</a>';
 		return ob_get_clean();
 	}
+	
+	public static function ajaxLoader($htmlOptions = array())
+	{
+	    return self::image(Yii::app()->bootstrap->assetsUrl.'/css/loader.gif', '', $htmlOptions);
+	}
 
 	//
 	// JAVASCRIPT
