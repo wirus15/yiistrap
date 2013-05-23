@@ -20,8 +20,12 @@ class TbDataColumn extends CDataColumn
 	 * @var array HTML options for filter input
 	 * @link {TbDataColumn::renderFilterCellContent()}
 	 */
-	public $filterInputOptions;
-
+	public $filterInputOptions = array('class' => 'input-block-level');
+	/**
+	 * @var array the HTML options for the header cell tag.
+	 */
+	public $headerHtmlOptions = array('class' => 'column-header');
+	
 	/**
 	 * Renders the header cell content.
 	 * This method will render a link that can trigger the sorting if the column is sortable.

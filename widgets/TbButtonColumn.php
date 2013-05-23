@@ -29,7 +29,11 @@ class TbButtonColumn extends CButtonColumn
 	 * @var string the delete button icon (defaults to TbHtml::ICON_TRASH).
 	 */
 	public $deleteButtonIcon = TbHtml::ICON_TRASH;
-
+	/**
+	 * @var array the HTML options for the header cell tag.
+	 */
+	public $headerHtmlOptions = array('class' => 'column-header');
+	
 	/**
 	 * Initializes the default buttons (view, update and delete).
 	 */

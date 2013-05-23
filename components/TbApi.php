@@ -32,9 +32,25 @@ class TbApi extends CApplicationComponent
 	 * @var bool whether we should copy the asset file or directory even if it is already published before.
 	 */
 	public $forceCopyAssets = false;
+	
+	/** 
+	 *
+	 * @var boolean whether register all styles and scrips on component init
+	 */
+	public $autoRegister = true;
 
 	private $_assetsUrl;
 
+	/**
+	 * Initializes the application component. Aditionally registers bootstrap assets if $autoRegister is set to true.
+	 */
+	public function init()
+	{
+	    parent::init();
+	    if($this->autoRegister)
+		$this->register();
+	}
+	
 	/**
 	 * Registers the Bootstrap CSS.
 	 * @param string $url the URL to the CSS file to register.
@@ -65,6 +81,17 @@ class TbApi extends CApplicationComponent
 		$cs->registerMetaTag('width=device-width, initial-scale=1.0', 'viewport');
 		$cs->registerCssFile($url);
 	}
+	
+	/**
+	 * Registers Yii CSS
+	 * @param string $url the URL to the CSS file to register.
+	 */
+	public function registerYiiCss($url = null)
+	{
+	    if($url === null) 
+		$url = $this->getAssetsUrl().'/css/bootstrap-yii.css';
+	    Yii::app()->clientScript->registerCssFile($url);
+	}
 
 	/**
 	 * Registers all Bootstrap CSS files.
@@ -73,6 +100,7 @@ class TbApi extends CApplicationComponent
 	{
 		$this->registerCoreCss();
 		$this->registerResponsiveCss();
+		$this->registerYiiCss();
 	}
 
 	/**

@@ -2414,8 +2414,11 @@ EOD;
 			$htmlOptions['data-toggle'] = 'button';
 		$items = strpos($type, 'input') === false ? self::popOption('items', $htmlOptions, array()) : array();
 		$icon = self::popOption('icon', $htmlOptions);
-		if (!empty($icon) && strpos($type, 'input') === false) // inputs cannot have icons
-			$label = self::icon($icon) . '&nbsp;' . $label;
+		if (!empty($icon) && strpos($type, 'input') === false) {// inputs cannot have icons
+		    if(self::popOption('whiteIcon', $htmlOptions) === true)
+			    $icon .= ' icon-white';
+		    $label = self::icon($icon) . '&nbsp;' . $label;
+		}
 		$dropdownOptions = $htmlOptions;
 		self::removeOptions($htmlOptions, array('groupOptions', 'menuOptions', 'dropup'));
 		self::addSpanClass($htmlOptions); // must be called here as CHtml renders buttons
