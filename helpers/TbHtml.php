@@ -3705,7 +3705,7 @@ EOD;
 	
 	public static function ajaxLoader($htmlOptions = array())
 	{
-	    return self::image(Yii::app()->bootstrap->assetsUrl.'/css/loader.gif', '', $htmlOptions);
+	    return self::image(Yii::app()->bootstrap->assetsUrl.'/img/loader.gif', '', $htmlOptions);
 	}
 
 	//
